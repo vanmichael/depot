@@ -2,13 +2,13 @@ require 'test_helper'
 
 class ProductsControllerTest < ActionController::TestCase
   setup do
-    @product = products(:one)
+    @product = products(:one) #set @product = to the products fixture
     @update = {
       title:       'Lorem Ipsum',
       description: 'Wibbles are fun!',
       image_url:   'lorem.jpg',
       price:       19.95
-    }
+    } #Set @update to specific attributes defined here.
   end
 
   test "should get index" do
@@ -23,7 +23,7 @@ class ProductsControllerTest < ActionController::TestCase
   end
 
   test "should create product" do
-    assert_difference('Product.count') do
+    assert_difference('Product.count') do #if product is created increment counter
       post :create, product: @update
     end
 
@@ -42,7 +42,7 @@ class ProductsControllerTest < ActionController::TestCase
 
   test "should update product" do
     put :update, id: @product, product: @update
-    assert_redirected_to product_path(assigns(:product))
+    assert_redirected_to product_path(assigns(:product)) #go back to the specific show page of the product that was just updated
   end
 
   test "should destroy product" do
